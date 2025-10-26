@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:emedrandaS1Taller1.Views"
+             x:Class="emedrandaS1Taller1.Views.Inscripcion"
+             Title="Inscripcion">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Label Text="Taller Semana 1"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center" 
+                   TextColor="Blue"/>
+
+            <Image 
+                Source="imagenu.png"
+                WidthRequest="180"
+                HeightRequest="120"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"/>
+
+            <Label Text="Formulario de Inscripción"
+                   FontSize="22"
+                   HorizontalTextAlignment="Center" />
+            <Label Text="Complete la siguiente información para realizar su inscripción."
+                   FontSize="12" HorizontalTextAlignment="Center" />
+
+            <!-- Identificación -->
+            <Grid ColumnDefinitions="*,2*" ColumnSpacing="10">
+                <Picker x:Name="TipoIdPicker" Title="Tipo de identificación">
+                    <Picker.Items>
+                        <x:String>CÉDULA</x:String>
+                        <x:String>PASAPORTE</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Entry x:Name="NumeroIdEntry" Grid.Column="1"
+                       Placeholder="Número" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <local:NumericOnlyBehavior />
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+
+            <!-- Apellidos -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <Entry x:Name="ApellidoPaternoEntry" Placeholder="Apellido paterno">
+                    <Entry.Behaviors>
+                        <local:LettersOnlyBehavior />
+                    </Entry.Behaviors>
+                </Entry>
+                <Entry x:Name="ApellidoMaternoEntry" Placeholder="Apellido materno" Grid.Column="1">
+                    <Entry.Behaviors>
+                        <local:LettersOnlyBehavior />
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+
+            <!-- Nombres -->
+            <Entry x:Name="NombresEntry" Placeholder="Nombres completos">
+                <Entry.Behaviors>
+                    <local:LettersOnlyBehavior />
+                </Entry.Behaviors>
+            </Entry>
+
+            <!-- Teléfono -->
+            <Grid ColumnDefinitions="2*,*" ColumnSpacing="10">
+                <Entry x:Name="TelefonoEntry" Placeholder="Teléfono personal" Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <local:NumericOnlyBehavior />
+                    </Entry.Behaviors>
+                </Entry>
+            </Grid>
+
+            <!-- Correos -->
+            <Entry x:Name="CorreoEntry" Placeholder="Correo personal" Keyboard="Email" />
+            <Entry x:Name="ConfirmarCorreoEntry" Placeholder="Confirmar correo" Keyboard="Email" />
+
+            <!-- Selectores -->
+            <Picker x:Name="CarreraPicker" Title="Carrera">
+                <Picker.Items>
+                    <x:String>Administración de Empresas</x:String>
+                    <x:String>Ciencias de la Educación Básica</x:String>
+                    <x:String>Ciencias de la Educación Inicial</x:String>
+                    <x:String>Contabilidad y Auditoría</x:String>
+                    <x:String>Diseño Digital</x:String>
+                    <x:String>Electrónica y Automatización</x:String>
+                    <x:String>Informática</x:String>
+                    <x:String>Medicina</x:String>
+                    <x:String>Psicología</x:String>
+                    <x:String>Sistemas de la Información</x:String>
+                    <x:String>Telecomunicaciones</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Picker x:Name="ModalidadPicker" Title="Modalidad">
+                <Picker.Items>
+                    <x:String>Presencial</x:String>
+                    <x:String>Semipresencial</x:String>
+                    <x:String>En línea</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Picker x:Name="CampusPicker" Title="Campus">
+                <Picker.Items>
+                    <x:String>Matriz</x:String>
+                    <x:String>Norte</x:String>
+                    <x:String>Sur</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Button Text="Enviar inscripción" Clicked="OnEnviarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
